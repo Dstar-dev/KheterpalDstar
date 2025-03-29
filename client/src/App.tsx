@@ -7,7 +7,6 @@ import Home from "@/pages/home";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import Cursor from "@/components/Cursor";
-import BackgroundIllustration from "./components/BackgroundIllustration";
 
 function Router() {
   return (
@@ -23,7 +22,6 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <BackgroundIllustration />
       <Cursor />
       <Router />
       <Toaster />
