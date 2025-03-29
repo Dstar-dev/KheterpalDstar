@@ -7,7 +7,6 @@ import Home from "@/pages/home";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import Cursor from "@/components/Cursor";
-import { ThemeToggle } from './components/ThemeToggle'; // Added import
 
 function Router() {
   return (
@@ -23,7 +22,6 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeToggle /> {/* Added ThemeToggle component */}
       <Cursor />
       <Router />
       <Toaster />

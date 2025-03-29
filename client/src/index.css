@@ -16,13 +16,6 @@
   }
 
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-  }
-
-  :root[data-theme="dark"] {
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;
     --card: 222 47% 11%;
@@ -61,31 +54,6 @@
   .glass-effect {
     background: rgba(15, 23, 42, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-  }
-
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent animate-gradient;
-  }
-
-  .gradient-border {
-    @apply border-2 border-transparent bg-gradient-to-r from-primary via-secondary to-accent bg-clip-border;
-    position: relative;
-  }
-
-  .gradient-bg {
-    @apply bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20;
-  }
-
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .animate-gradient {
-    animation: gradient 8s ease infinite;
-    background-size: 200% 200%;
   }
 
   .text-glow {
