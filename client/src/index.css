@@ -44,49 +44,21 @@
   .hover-trigger {
     position: relative;
     cursor: pointer;
-    transition: all 0.3s ease;
   }
 
-  .hover-trigger:before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #22D3EE, #EC4899);
-    transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
-
-  .hover-trigger:hover:before {
-    width: 100%;
+  /* Simplified hover effect without transitions */
+  .hover-trigger:hover {
+    opacity: 0.9;
   }
 
   .glass-effect {
     background: rgba(15, 23, 42, 0.7);
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   }
 
   .text-glow {
-    text-shadow: 0 0 15px rgba(34, 211, 238, 0.7);
+    text-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
+  /* Removed animate-float animation for performance */
 }

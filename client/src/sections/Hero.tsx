@@ -1,8 +1,5 @@
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa";
 import StatCard from "@/components/ui/stat-card";
-import ThreeScene from "@/lib/ThreeScene";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -26,24 +23,16 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* 3D Canvas background */}
-      <div className="absolute inset-0 z-0">
-        <ThreeScene />
-      </div>
+    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* Static background with gradients instead of 3D scene */}
+      
+      {/* Background blurs - reduced animation */}
+      <div className="absolute -top-20 -right-20 w-80 h-80 bg-secondary/30 rounded-full filter blur-3xl opacity-20"></div>
+      <div className="absolute -bottom-40 -left-20 w-80 h-80 bg-accent/30 rounded-full filter blur-3xl opacity-20"></div>
 
-      {/* Background blurs */}
-      <div className="absolute -top-20 -right-20 w-80 h-80 bg-secondary/30 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
-      <div className="absolute -bottom-40 -left-20 w-80 h-80 bg-accent/30 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
-
-      {/* Content */}
+      {/* Content - removed motion animations for performance */}
       <div className="container mx-auto px-6 z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl"
-        >
+        <div className="max-w-4xl">
           <h1 className="font-['Space_Grotesk'] font-bold text-4xl md:text-6xl lg:text-7xl mb-6">
             <span className="block">Securing the</span>
             <span className="bg-gradient-to-r from-accent to-highlight bg-clip-text text-transparent">
@@ -76,17 +65,15 @@ const Hero = () => {
             <StatCard value="104" label="Design Projects" accentColor="secondary" animationDelay={0.4} />
             <StatCard value="12" label="Industry Awards" accentColor="accent" animationDelay={0.6} />
           </div>
-        </motion.div>
+        </div>
       </div>
       
-      {/* Scroll indicator */}
-      <motion.div 
+      {/* Scroll indicator - static to improve performance */}
+      <div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 1.5 }}
       >
         <FaChevronDown className="text-accent" />
-      </motion.div>
+      </div>
     </section>
   );
 };

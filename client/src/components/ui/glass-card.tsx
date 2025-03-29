@@ -11,26 +11,12 @@ const GlassCard = ({ children, className, glowEffect = false }: GlassCardProps) 
   return (
     <div
       className={cn(
-        "backdrop-blur-md bg-primary/30 rounded-xl border border-white/10",
-        glowEffect && "animate-glow",
+        "bg-primary/30 rounded-xl border border-white/10",
+        glowEffect && "shadow-lg shadow-accent/20",
         className
       )}
     >
       {children}
-
-      {glowEffect && (
-        <style dangerouslySetInnerHTML={{
-          __html: `
-          @keyframes glow {
-            0% { box-shadow: 0 0 5px rgba(34, 211, 238, 0.3); }
-            100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.5); }
-          }
-          .animate-glow {
-            animation: glow 2s ease-in-out infinite alternate;
-          }
-          `
-        }} />
-      )}
     </div>
   );
 };
