@@ -1,6 +1,9 @@
+
 {
-  "variant": "minimal",
+  "variant": "default",
   "primary": "#3B82F6",
+  "secondary": "#6366F1",
+  "accent": "#22D3EE",
   "appearance": "light",
   "radius": 1.5
 }
