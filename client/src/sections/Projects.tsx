@@ -20,12 +20,12 @@ const Projects = () => {
         setFilteredProjects(projects.filter(project => project.category === activeFilter));
       }
     };
-    
+
     // Add slight delay for animation purposes
     const timer = setTimeout(() => {
       filterProjects();
     }, 100);
-    
+
     return () => clearTimeout(timer);
   }, [activeFilter]);
 
@@ -91,7 +91,7 @@ const Projects = () => {
             A curated selection of my work showcasing security research, UI/UX design, and interactive experiences.
           </p>
         </motion.div>
-        
+
         {/* Project Filters */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -156,8 +156,8 @@ const Projects = () => {
           >
             Interactive
           </motion.button>
-        </div>
-        
+        </motion.div>
+
         {/* Projects Grid */}
         <AnimatePresence mode="wait">
           <motion.div 
@@ -183,7 +183,7 @@ const Projects = () => {
             ))}
           </motion.div>
         </AnimatePresence>
-        
+
         {/* View All Projects Button */}
         <div 
           className="mt-16 text-center"
@@ -214,7 +214,7 @@ const Projects = () => {
           </motion.a>
         </div>
       </div>
-      
+
       {/* Animated Background Elements */}
       <div className="absolute top-20 -left-20 w-80 h-80 bg-accent/10 rounded-full filter blur-3xl opacity-20">
         <motion.div 
@@ -230,7 +230,7 @@ const Projects = () => {
           }}
         />
       </div>
-      
+
       <div className="absolute bottom-20 -right-20 w-80 h-80 bg-secondary rounded-full filter blur-3xl opacity-30">
         <motion.div 
           className="w-full h-full"
@@ -246,7 +246,7 @@ const Projects = () => {
           }}
         />
       </div>
-      
+
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl max-h-4xl pointer-events-none">
         <motion.div 
           className="w-full h-full border border-primary/10 rounded-full"
