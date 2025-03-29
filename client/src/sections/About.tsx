@@ -133,7 +133,7 @@ const About = () => {
             
             <button 
               onClick={scrollToContact}
-              className="hover-trigger inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-green-400 hover:bg-green-500 text-gray-800 font-semibold transition-all shadow-lg shadow-green-400/30"
+              className="hover-trigger inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-all shadow-lg shadow-primary/30"
             >
               Let's Work Together
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
