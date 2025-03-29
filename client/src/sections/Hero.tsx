@@ -24,46 +24,84 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative pt-32 pb-20 overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="w-full md:w-1/2 mb-12 md:mb-0">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="w-full md:w-1/2 mb-8 md:mb-0"
+          >
             <div className="accent-line mb-6"></div>
-            <h1 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-8 text-gray-900 dark:text-white leading-tight">
-              Cybersecurity <span className="text-primary">Research</span> <br/> & Digital <span className="text-primary">Design</span>
-            </h1>
-            <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl leading-relaxed">
+            <motion.h1 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6 text-gray-900 dark:text-white leading-tight"
+            >
+              Cybersecurity <span className="text-primary">Research</span> <br className="hidden sm:block"/> & Digital <span className="text-primary">Design</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl leading-relaxed"
+            >
               Advanced security solutions and beautiful, user-centered design for companies seeking to protect their digital assets.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <button 
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-wrap gap-4"
+            >
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={scrollToProjects}
-                className="btn-primary px-8 py-3 rounded-md font-medium"
+                className="btn-primary px-8 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-lg"
               >
                 View Projects
-              </button>
-              <button 
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={scrollToContact}
-                className="btn-secondary px-8 py-3 rounded-md font-medium"
+                className="btn-secondary px-8 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-lg"
               >
                 Contact Us
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
             
             {/* Stats showcasing work */}
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-6">
-              <div className="flex items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+            >
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center p-4 rounded-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+              >
                 <span className="stats-value text-primary mr-2">56+</span>
                 <span className="stats-label">Security Audits</span>
-              </div>
-              <div className="flex items-center">
+              </motion.div>
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center p-4 rounded-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+              >
                 <span className="stats-value text-primary mr-2">92%</span>
                 <span className="stats-label">Client Retention</span>
-              </div>
-              <div className="flex items-center">
+              </motion.div>
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center p-4 rounded-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+              >
                 <span className="stats-value text-primary mr-2">104</span>
                 <span className="stats-label">Projects Completed</span>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
           
           <div className="w-full md:w-1/2">
