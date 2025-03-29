@@ -58,7 +58,7 @@ const ThreeScene = () => {
     
     // Create primary particles (smaller, more numerous)
     const particlesGeometry = new THREE.BufferGeometry();
-    const particleCount = 2000;
+    const particleCount = 3000;
     
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
