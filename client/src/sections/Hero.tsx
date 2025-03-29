@@ -28,10 +28,10 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="w-full md:w-1/2 mb-12 md:mb-0">
             <div className="accent-line mb-6"></div>
-            <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-gray-900 dark:text-white">
-              Cybersecurity <span className="text-primary">Research</span> & Digital <span className="text-primary">Design</span>
+            <h1 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-8 text-gray-900 dark:text-white leading-tight">
+              Cybersecurity <span className="text-primary">Research</span> <br/> & Digital <span className="text-primary">Design</span>
             </h1>
-            <p className="font-body text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-md">
+            <p className="font-body text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl leading-relaxed">
               Advanced security solutions and beautiful, user-centered design for companies seeking to protect their digital assets.
             </p>
             <div className="flex flex-wrap gap-4">
