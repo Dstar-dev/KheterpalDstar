@@ -107,11 +107,11 @@ const About = () => {
             
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div>
-                <h4 className="font-['Space_Grotesk'] font-medium text-accent mb-2">Security Expertise</h4>
-                <ul className="space-y-2 text-white/90">
+                <h4 className="font-['Space_Grotesk'] font-medium text-orange-500 mb-2">Security Expertise</h4>
+                <ul className="space-y-2 text-gray-800 dark:text-orange-200">
                   {securitySkills.map((skill, index) => (
                     <li key={index} className="flex items-center gap-2">
-                      <FaCheck className="text-accent text-sm" />
+                      <FaCheck className="text-orange-500 text-sm" />
                       <span>{skill}</span>
                     </li>
                   ))}
@@ -119,11 +119,11 @@ const About = () => {
               </div>
               
               <div>
-                <h4 className="font-['Space_Grotesk'] font-medium text-highlight mb-2">Design Skillset</h4>
-                <ul className="space-y-2 text-white/90">
+                <h4 className="font-['Space_Grotesk'] font-medium text-orange-600 mb-2">Design Skillset</h4>
+                <ul className="space-y-2 text-gray-800 dark:text-orange-200">
                   {designSkills.map((skill, index) => (
                     <li key={index} className="flex items-center gap-2">
-                      <FaCheck className="text-highlight text-sm" />
+                      <FaCheck className="text-orange-600 text-sm" />
                       <span>{skill}</span>
                     </li>
                   ))}
