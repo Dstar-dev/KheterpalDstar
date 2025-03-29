@@ -32,10 +32,10 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
+    { id: "home", label: "How It Works" },
     { id: "projects", label: "Projects" },
-    { id: "skills", label: "Skills" },
+    { id: "blog", label: "Blog" },
+    { id: "about", label: "Team" },
     { id: "contact", label: "Contact" },
   ];
   
@@ -47,80 +47,60 @@ const Navbar = () => {
     <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
-        isScrolled && "shadow-lg"
+        isScrolled ? "bg-white shadow-sm dark:bg-slate-900" : "bg-transparent"
       )}
     >
-      <nav className="backdrop-blur-md bg-primary/50 border-b border-white/10 px-6 py-4 flex justify-between items-center transition-all duration-300">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
-            <span className="font-['Space_Grotesk'] font-bold text-2xl text-text">S</span>
-          </div>
-          <span className="font-['Space_Grotesk'] font-medium text-xl">Sentinel</span>
-        </div>
-
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => scrollToSection(link.id)}
-              className="hover-trigger hover:text-accent transition-colors"
-            >
-              {link.label}
-            </button>
-          ))}
-          {pageLinks.map((link) => (
-            <Link
-              key={link.path}
-              href={link.path}
-              className="hover-trigger hover:text-accent transition-colors"
-            >
-              {link.label}
+      <div className="container mx-auto">
+        <nav className="px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <Link href="/">
+              <div className="flex items-center cursor-pointer">
+                <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center mr-2">
+                  <span className="font-heading font-bold text-lg text-white">S</span>
+                </div>
+                <span className="font-heading font-medium text-xl text-gray-900 dark:text-white">sentinel</span>
+              </div>
             </Link>
-          ))}
-        </div>
+          </div>
 
-        <div className="flex items-center space-x-4">
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover-trigger text-text hover:text-accent transition-colors"
-            aria-label="GitHub"
-          >
-            <FaGithub className="text-xl" />
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover-trigger text-text hover:text-accent transition-colors"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedinIn className="text-xl" />
-          </a>
-          <a
-            href="https://discord.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover-trigger text-text hover:text-accent transition-colors"
-            aria-label="Discord"
-          >
-            <FaDiscord className="text-xl" />
-          </a>
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className="font-body text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors"
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="hidden md:flex items-center space-x-4">
+            <button className="font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
+              Log In
+            </button>
+            <button className="btn-primary px-5 py-2 rounded-md">
+              Register
+            </button>
+          </div>
+
           <button
-            className="md:hidden hover-trigger"
+            className="md:hidden"
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
           >
-            {isMobileMenuOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
+            {isMobileMenuOpen ? 
+              <FaTimes className="text-xl text-gray-900 dark:text-white" /> : 
+              <FaBars className="text-xl text-gray-900 dark:text-white" />
+            }
           </button>
-        </div>
-      </nav>
+        </nav>
+      </div>
 
       {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden backdrop-blur-md bg-primary/50 py-4 px-6 space-y-4 transition-all duration-300 border-b border-white/10",
+          "md:hidden bg-white dark:bg-slate-900 py-4 px-6 space-y-4 transition-all duration-300 border-t border-gray-100 dark:border-gray-800",
           isMobileMenuOpen ? "block" : "hidden"
         )}
       >
@@ -128,21 +108,19 @@ const Navbar = () => {
           <button
             key={link.id}
             onClick={() => scrollToSection(link.id)}
-            className="hover-trigger block w-full text-left hover:text-accent transition-colors"
+            className="block w-full text-left font-body text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium py-2"
           >
             {link.label}
           </button>
         ))}
-        {pageLinks.map((link) => (
-          <Link
-            key={link.path}
-            href={link.path}
-            className="hover-trigger block w-full text-left hover:text-accent transition-colors"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            {link.label}
-          </Link>
-        ))}
+        <div className="flex flex-col pt-4 space-y-3 border-t border-gray-100 dark:border-gray-800">
+          <button className="font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors w-full text-left py-2">
+            Log In
+          </button>
+          <button className="btn-primary px-5 py-2 rounded-md">
+            Register
+          </button>
+        </div>
       </div>
     </header>
   );

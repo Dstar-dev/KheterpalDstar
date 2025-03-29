@@ -1,4 +1,4 @@
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaShieldAlt, FaLock, FaSearch } from "react-icons/fa";
 import StatCard from "@/components/ui/stat-card";
 
 const Hero = () => {
@@ -23,56 +23,86 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Static background with gradients instead of 3D scene */}
-      
-      {/* Background blurs - reduced animation */}
-      <div className="absolute -top-20 -right-20 w-80 h-80 bg-secondary/30 rounded-full filter blur-3xl opacity-20"></div>
-      <div className="absolute -bottom-40 -left-20 w-80 h-80 bg-accent/30 rounded-full filter blur-3xl opacity-20"></div>
-
-      {/* Content - removed motion animations for performance */}
-      <div className="container mx-auto px-6 z-10">
-        <div className="max-w-4xl">
-          <h1 className="font-['Space_Grotesk'] font-bold text-4xl md:text-6xl lg:text-7xl mb-6">
-            <span className="block">Securing the</span>
-            <span className="bg-gradient-to-r from-accent to-highlight bg-clip-text text-transparent">
-              Digital Frontier
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
-            Security researcher and graphic designer crafting beautiful, 
-            secure digital experiences that push the boundaries of what's possible.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <button 
-              onClick={scrollToProjects}
-              className="hover-trigger px-8 py-3 rounded-lg bg-secondary hover:bg-secondary/90 text-white font-semibold transition-all shadow-lg shadow-secondary/30"
-            >
-              View Projects
-            </button>
-            <button 
-              onClick={scrollToContact}
-              className="hover-trigger px-8 py-3 rounded-lg border-2 border-accent hover:bg-accent/10 text-white font-semibold transition-all"
-            >
-              Get in Touch
-            </button>
+    <section id="home" className="relative pt-32 pb-20 overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center">
+          <div className="w-full md:w-1/2 mb-12 md:mb-0">
+            <div className="accent-line mb-6"></div>
+            <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-gray-900 dark:text-white">
+              Cybersecurity <span className="text-primary">Research</span> & Digital <span className="text-primary">Design</span>
+            </h1>
+            <p className="font-body text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-md">
+              Advanced security solutions and beautiful, user-centered design for companies seeking to protect their digital assets.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <button 
+                onClick={scrollToProjects}
+                className="btn-primary px-8 py-3 rounded-md font-medium"
+              >
+                View Projects
+              </button>
+              <button 
+                onClick={scrollToContact}
+                className="btn-secondary px-8 py-3 rounded-md font-medium"
+              >
+                Contact Us
+              </button>
+            </div>
+            
+            {/* Stats showcasing work */}
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-6">
+              <div className="flex items-center">
+                <span className="stats-value text-primary mr-2">56+</span>
+                <span className="stats-label">Security Audits</span>
+              </div>
+              <div className="flex items-center">
+                <span className="stats-value text-primary mr-2">92%</span>
+                <span className="stats-label">Client Retention</span>
+              </div>
+              <div className="flex items-center">
+                <span className="stats-value text-primary mr-2">104</span>
+                <span className="stats-label">Projects Completed</span>
+              </div>
+            </div>
           </div>
           
-          {/* Stats showcasing work */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <StatCard value="56+" label="Security Audits" accentColor="accent" animationDelay={0} />
-            <StatCard value="92%" label="Client Satisfaction" accentColor="highlight" animationDelay={0.2} />
-            <StatCard value="104" label="Design Projects" accentColor="secondary" animationDelay={0.4} />
-            <StatCard value="12" label="Industry Awards" accentColor="accent" animationDelay={0.6} />
+          <div className="w-full md:w-1/2">
+            <div className="relative">
+              <div className="w-full h-[500px] bg-secondary rounded-xl relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-primary/10"></div>
+                
+                {/* Hero graphics - security focused illustrations */}
+                <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center">
+                  <FaShieldAlt className="text-primary text-2xl" />
+                </div>
+                <div className="absolute top-1/3 right-1/4 w-20 h-20 bg-primary rounded-xl shadow-lg flex items-center justify-center">
+                  <FaLock className="text-white text-3xl" />
+                </div>
+                <div className="absolute bottom-1/4 left-1/3 w-14 h-14 bg-white rounded-xl shadow-lg flex items-center justify-center">
+                  <FaSearch className="text-primary text-xl" />
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-4 border-white/20 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-2 border-white/10 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-white/5 rounded-full"></div>
+              </div>
+              
+              {/* Badge elements for highlights */}
+              <div className="absolute -top-4 -right-4 badge badge-primary">
+                Advanced Security
+              </div>
+              <div className="absolute -bottom-4 -left-4 badge badge-secondary">
+                Modern Design
+              </div>
+            </div>
           </div>
         </div>
       </div>
       
-      {/* Scroll indicator - static to improve performance */}
-      <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <FaChevronDown className="text-accent" />
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <FaChevronDown className="text-primary" />
       </div>
     </section>
   );
