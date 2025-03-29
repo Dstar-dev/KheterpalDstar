@@ -95,8 +95,8 @@ const Hero = () => {
             data-aos-delay="300"
           >
             <div className="relative">
-              <div className="w-full h-[500px] bg-secondary rounded-xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-primary/10"></div>
+              <div className="w-full h-[500px] bg-white rounded-xl relative overflow-hidden">
+                <div className="absolute inset-0 bg-black/90"></div>
                 
                 {/* Hero graphics - security focused illustrations */}
                 <div 
