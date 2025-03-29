@@ -11,7 +11,7 @@ const GlassCard = ({ children, className, glowEffect = false }: GlassCardProps) 
   return (
     <div
       className={cn(
-        "backdrop-blur-md bg-primary/30 rounded-xl border border-white/10",
+        "bg-white/80 backdrop-blur-sm rounded-xl border border-slate-100 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]",
         glowEffect && "animate-glow",
         className
       )}
