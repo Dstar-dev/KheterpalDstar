@@ -84,17 +84,26 @@ const About = () => {
             viewport={{ once: true }}
             className="order-1 md:order-2"
           >
-            <h3 className="font-['Space_Grotesk'] text-2xl font-medium mb-4">
-              Blending security expertise with <span className="text-accent">creative design</span>
-            </h3>
-            
-            <p className="mb-6 text-white/90">
-              I specialize in the intersection of cybersecurity and design, creating secure, beautiful digital experiences that don't compromise on either front. With expertise in penetration testing, vulnerability research, and UI/UX design, I bring a unique perspective to every project.
-            </p>
-            
-            <p className="mb-8 text-white/90">
-              My philosophy is that security should be beautiful, intuitive, and seamlessly integrated into the user experience. I've helped companies across fintech, healthcare, and e-commerce build products that protect users while delighting them.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="p-6 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 hover:border-accent/50 transition-all mb-8"
+            >
+              <h3 className="font-['Space_Grotesk'] text-2xl font-medium mb-4 text-white">
+                Blending security expertise with <span className="text-accent">creative design</span>
+              </h3>
+              
+              <p className="mb-6 text-gray-200">
+                I specialize in the intersection of cybersecurity and design, creating secure, beautiful digital experiences that don't compromise on either front. With expertise in penetration testing, vulnerability research, and UI/UX design, I bring a unique perspective to every project.
+              </p>
+              
+              <p className="mb-4 text-gray-200">
+                My philosophy is that security should be beautiful, intuitive, and seamlessly integrated into the user experience. I've helped companies across fintech, healthcare, and e-commerce build products that protect users while delighting them.
+              </p>
+
+              <div className="w-full h-1 bg-gradient-to-r from-accent via-highlight to-secondary rounded-full animate-pulse"></div>
+            </motion.div>
             
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div>
