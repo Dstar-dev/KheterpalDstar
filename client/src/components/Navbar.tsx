@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { FaGithub, FaLinkedinIn, FaDiscord, FaBars, FaTimes } from "react-icons/fa";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -76,6 +77,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
             <button className="font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
               Log In
             </button>
@@ -84,16 +86,19 @@ const Navbar = () => {
             </button>
           </div>
 
-          <button
-            className="md:hidden"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
-          >
-            {isMobileMenuOpen ? 
-              <FaTimes className="text-xl text-gray-900 dark:text-white" /> : 
-              <FaBars className="text-xl text-gray-900 dark:text-white" />
-            }
-          </button>
+          <div className="flex items-center md:hidden">
+            <ThemeToggle />
+            <button
+              className="ml-2"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? 
+                <FaTimes className="text-xl text-gray-900 dark:text-white" /> : 
+                <FaBars className="text-xl text-gray-900 dark:text-white" />
+              }
+            </button>
+          </div>
         </nav>
       </div>
 

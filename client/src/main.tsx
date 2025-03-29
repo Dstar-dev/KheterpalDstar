@@ -5,8 +5,8 @@ import "./index.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Create a wrapper component to initialize AOS and enforce dark mode
-const AppWithAOS = () => {
+// Create a wrapper component to initialize AOS
+const AppWithProviders = () => {
   useEffect(() => {
     // Initialize AOS with custom settings
     AOS.init({
@@ -16,9 +16,6 @@ const AppWithAOS = () => {
       mirror: true, // animations occur each time the element comes into view
       offset: 50,
     });
-    
-    // Force dark mode
-    document.documentElement.classList.add('dark');
   }, []);
 
   return (
@@ -34,4 +31,4 @@ if (!root) {
   throw new Error("Root element not found");
 }
 
-createRoot(root).render(<AppWithAOS />);
+createRoot(root).render(<AppWithProviders />);

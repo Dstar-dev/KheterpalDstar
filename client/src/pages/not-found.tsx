@@ -51,14 +51,14 @@ export default function NotFound() {
 
   return (
     <motion.div 
-      className="min-h-screen w-full flex items-center justify-center bg-black cyber-grid overflow-hidden relative"
+      className="min-h-screen w-full flex items-center justify-center dark:bg-black bg-white cyber-grid overflow-hidden relative"
       variants={backgroundVariants}
       initial="hidden"
       animate="visible"
     >
       {/* Neon glow effects */}
       <motion.div 
-        className="absolute top-1/3 left-1/4 w-64 h-64 rounded-full bg-cyan-500/10 filter blur-3xl"
+        className="absolute top-1/3 left-1/4 w-64 h-64 rounded-full dark:bg-cyan-500/10 bg-orange-500/10 filter blur-3xl"
         animate={{ 
           x: [0, 30, 0],
           y: [0, -30, 0],
@@ -73,7 +73,7 @@ export default function NotFound() {
       />
       
       <motion.div 
-        className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-fuchsia-500/10 filter blur-3xl"
+        className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full dark:bg-fuchsia-500/10 bg-amber-500/10 filter blur-3xl"
         animate={{ 
           x: [0, -40, 0],
           y: [0, 40, 0],
@@ -107,11 +107,11 @@ export default function NotFound() {
                 className="mb-6"
               >
                 <div className="relative">
-                  <div className="w-24 h-24 rounded-full bg-black border border-cyan-400 flex items-center justify-center animate-pulse-custom">
-                    <AlertCircle className="h-12 w-12 text-cyan-400" />
+                  <div className="w-24 h-24 rounded-full dark:bg-black bg-orange-50 dark:border-cyan-400 border-orange-500 border flex items-center justify-center dark:animate-pulse-custom">
+                    <AlertCircle className="h-12 w-12 dark:text-cyan-400 text-orange-500" />
                   </div>
                   <motion.div 
-                    className="absolute -right-2 -top-2 bg-black text-cyan-400 w-8 h-8 rounded-full flex items-center justify-center font-bold border border-cyan-400 animate-pulse-custom"
+                    className="absolute -right-2 -top-2 dark:bg-black bg-white dark:text-cyan-400 text-orange-500 w-8 h-8 rounded-full flex items-center justify-center font-bold dark:border-cyan-400 border-orange-500 border dark:animate-pulse-custom"
                     animate={{ 
                       rotate: [0, 10, 0, -10, 0],
                       scale: [1, 1.1, 1, 1.1, 1]
@@ -141,7 +141,7 @@ export default function NotFound() {
               
               <motion.p 
                 variants={itemVariants}
-                className="mt-2 text-gray-300 mb-8"
+                className="mt-2 dark:text-gray-300 text-gray-600 mb-8"
               >
                 Oops! The page you're looking for seems to have disappeared into the digital void.
               </motion.p>
