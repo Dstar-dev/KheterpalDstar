@@ -74,28 +74,31 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="relative py-24 bg-primary/5 overflow-hidden">
+    <section id="projects" className="relative py-24 overflow-hidden">
       <div className="container mx-auto px-6">
-        <div 
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
           className="mb-12 text-center"
-          data-aos="fade-up"
-          data-aos-duration="800"
         >
-          <span className="badge badge-primary mb-4">Portfolio</span>
-          <h2 className="font-heading font-bold text-3xl md:text-5xl mt-2">
-            Featured <span className="text-primary">Projects</span>
+          <span className="font-['Montserrat'] text-sm uppercase tracking-widest text-accent">Portfolio</span>
+          <h2 className="font-['Space_Grotesk'] font-bold text-3xl md:text-5xl mt-2">
+            Featured <span className="bg-gradient-to-r from-accent to-highlight bg-clip-text text-transparent">Projects</span>
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-gray-600">
-            A selection of my work across security research, UI/UX design, and interactive experiences.
+          <p className="mt-4 max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            A curated selection of my work showcasing security research, UI/UX design, and interactive experiences.
           </p>
-        </div>
+        </motion.div>
         
         {/* Project Filters */}
-        <div 
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
           className="flex flex-wrap justify-center gap-4 mb-12"
-          data-aos="fade-up"
-          data-aos-duration="800"
-          data-aos-delay="200"
         >
           <motion.button 
             variants={buttonVariants}
@@ -162,7 +165,7 @@ const Projects = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10"
           >
             {filteredProjects.map((project, index) => (
               <div key={index} style={{animationDelay: `${index * 150}ms`}}>
@@ -213,7 +216,7 @@ const Projects = () => {
       </div>
       
       {/* Animated Background Elements */}
-      <div className="absolute top-20 -left-20 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl opacity-30">
+      <div className="absolute top-20 -left-20 w-80 h-80 bg-accent/10 rounded-full filter blur-3xl opacity-20">
         <motion.div 
           className="w-full h-full"
           animate={{ 
