@@ -90,15 +90,15 @@ const About = () => {
               transition={{ duration: 0.5 }}
               className="p-6 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 hover:border-accent/50 transition-all mb-8"
             >
-              <h3 className="font-['Space_Grotesk'] text-2xl font-medium mb-4 text-white">
-                Blending security expertise with <span className="text-accent">creative design</span>
+              <h3 className="font-['Space_Grotesk'] text-2xl font-medium mb-4 bg-gradient-to-r from-orange-500 to-gray-900 bg-clip-text text-transparent">
+                Blending security expertise with <span className="text-accent font-bold">creative design</span>
               </h3>
               
-              <p className="mb-6 text-gray-200">
+              <p className="mb-6 text-gray-800 dark:text-orange-200">
                 I specialize in the intersection of cybersecurity and design, creating secure, beautiful digital experiences that don't compromise on either front. With expertise in penetration testing, vulnerability research, and UI/UX design, I bring a unique perspective to every project.
               </p>
               
-              <p className="mb-4 text-gray-200">
+              <p className="mb-4 text-gray-800 dark:text-orange-200">
                 My philosophy is that security should be beautiful, intuitive, and seamlessly integrated into the user experience. I've helped companies across fintech, healthcare, and e-commerce build products that protect users while delighting them.
               </p>
 
