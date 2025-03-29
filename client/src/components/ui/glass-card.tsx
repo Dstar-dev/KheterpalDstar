@@ -12,7 +12,7 @@ const GlassCard = ({ children, className, glowEffect = false }: GlassCardProps) 
     <div
       className={cn(
         "bg-primary/30 rounded-xl border border-white/10",
-        glowEffect && "shadow-lg shadow-accent/20",
+        glowEffect && "shadow-md shadow-accent/10",
         className
       )}
     >
