@@ -27,6 +27,10 @@ const blogPosts = [
   }
 ];
 
+import { FaArrowRight } from 'react-icons/fa';
+import { Link } from 'wouter';
+import { Button } from '@/components/ui/button';
+
 const Blog = () => {
   return (
     <section id="blog" className="relative py-24 overflow-hidden">
@@ -45,6 +49,12 @@ const Blog = () => {
           <p className="mt-4 max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
             Thoughts and articles about security, design, and development.
           </p>
+          <Link href="/blog" className="inline-block mt-4">
+            <Button variant="outline" size="lg" className="group">
+              View All Posts 
+              <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
