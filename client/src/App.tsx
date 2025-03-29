@@ -22,7 +22,7 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Cursor removed to improve performance */}
+      <Cursor />
       <Router />
       <Toaster />
     </QueryClientProvider>
