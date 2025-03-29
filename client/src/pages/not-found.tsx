@@ -51,17 +51,19 @@ export default function NotFound() {
 
   return (
     <motion.div 
-      className="min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-primary/5 to-secondary/10 overflow-hidden relative"
+      className="min-h-screen w-full flex items-center justify-center bg-black cyber-grid overflow-hidden relative"
       variants={backgroundVariants}
       initial="hidden"
       animate="visible"
     >
+      {/* Neon glow effects */}
       <motion.div 
-        className="absolute top-1/3 left-1/4 w-64 h-64 rounded-full bg-primary/10 filter blur-3xl"
+        className="absolute top-1/3 left-1/4 w-64 h-64 rounded-full bg-cyan-500/10 filter blur-3xl"
         animate={{ 
           x: [0, 30, 0],
           y: [0, -30, 0],
           scale: [1, 1.1, 1],
+          opacity: [0.4, 0.7, 0.4]
         }}
         transition={{
           duration: 8,
@@ -71,11 +73,12 @@ export default function NotFound() {
       />
       
       <motion.div 
-        className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-secondary/10 filter blur-3xl"
+        className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-fuchsia-500/10 filter blur-3xl"
         animate={{ 
           x: [0, -40, 0],
           y: [0, 40, 0],
           scale: [1, 1.2, 1],
+          opacity: [0.3, 0.6, 0.3]
         }}
         transition={{
           duration: 10,
@@ -91,7 +94,7 @@ export default function NotFound() {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 200, damping: 20 }}
       >
-        <Card className="w-full max-w-md mx-4 overflow-hidden shadow-lg border-none glass">
+        <Card className="w-full max-w-md mx-4 overflow-hidden card-3d">
           <CardContent className="p-8">
             <motion.div 
               className="flex flex-col items-center text-center"
@@ -104,11 +107,11 @@ export default function NotFound() {
                 className="mb-6"
               >
                 <div className="relative">
-                  <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center animate-pulse-custom">
-                    <AlertCircle className="h-12 w-12 text-primary" />
+                  <div className="w-24 h-24 rounded-full bg-black border border-cyan-400 flex items-center justify-center animate-pulse-custom">
+                    <AlertCircle className="h-12 w-12 text-cyan-400" />
                   </div>
                   <motion.div 
-                    className="absolute -right-2 -top-2 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold"
+                    className="absolute -right-2 -top-2 bg-black text-cyan-400 w-8 h-8 rounded-full flex items-center justify-center font-bold border border-cyan-400 animate-pulse-custom"
                     animate={{ 
                       rotate: [0, 10, 0, -10, 0],
                       scale: [1, 1.1, 1, 1.1, 1]
@@ -126,7 +129,7 @@ export default function NotFound() {
               
               <motion.h1 
                 variants={itemVariants}
-                className="text-3xl font-heading font-bold text-gray-900 mb-2"
+                className="text-3xl font-heading font-bold neon-text mb-2"
               >
                 404 - Page Not Found
               </motion.h1>
@@ -138,7 +141,7 @@ export default function NotFound() {
               
               <motion.p 
                 variants={itemVariants}
-                className="mt-2 text-gray-600 mb-8"
+                className="mt-2 text-gray-300 mb-8"
               >
                 Oops! The page you're looking for seems to have disappeared into the digital void.
               </motion.p>
@@ -148,14 +151,14 @@ export default function NotFound() {
                 className="flex gap-4"
               >
                 <Link href="/">
-                  <Button className="bg-primary hover:bg-primary/90 flex items-center gap-2">
-                    <Home size={16} />
+                  <Button className="btn-primary">
+                    <Home size={16} className="mr-2" />
                     Go Home
                   </Button>
                 </Link>
                 <Button 
                   variant="outline" 
-                  className="border-primary text-primary hover:bg-primary/5"
+                  className="btn-secondary"
                   onClick={() => window.history.back()}
                 >
                   <ArrowLeft size={16} className="mr-2" />
