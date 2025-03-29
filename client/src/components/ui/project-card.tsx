@@ -29,7 +29,7 @@ const ProjectCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="group backdrop-blur-md bg-primary/30 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 border border-white/10"
+      className="group backdrop-blur-md bg-white/5 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 border border-white/10 hover:bg-white/10"
     >
       <div className="relative aspect-video overflow-hidden">
         <img
