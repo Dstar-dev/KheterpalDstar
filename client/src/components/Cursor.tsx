@@ -9,7 +9,10 @@ const Cursor = () => {
 
   useEffect(() => {
     const mouseMoveHandler = (event: MouseEvent) => {
-      setPosition({ x: event.clientX, y: event.clientY });
+      // Using requestAnimationFrame for smoother updates
+      requestAnimationFrame(() => {
+        setPosition({ x: event.clientX, y: event.clientY });
+      });
 
       // Check if cursor is over clickable element
       const target = event.target as Element;
@@ -54,10 +57,10 @@ const Cursor = () => {
         }}
         transition={{
           type: "spring",
-          mass: 0.05,
-          stiffness: 400,
-          damping: 10,
-          duration: 0.05,
+          mass: 0.01, // Reduced mass for faster response
+          stiffness: 600, // Increased stiffness for snappier movement
+          damping: 5, // Reduced damping for less resistance
+          duration: 0.01, // Reduced duration for quicker updates
         }}
         style={{
           translateX: "-50%",
@@ -73,10 +76,10 @@ const Cursor = () => {
         }}
         transition={{
           type: "spring",
-          mass: 0.02,
-          stiffness: 500,
-          damping: 8,
-          duration: 0.03,
+          mass: 0.005, // Even lighter for the inner dot
+          stiffness: 700, // Higher stiffness for immediate response
+          damping: 4, // Lower damping for less lag
+          duration: 0.01, // Very short duration
         }}
         style={{
           translateX: "-50%",

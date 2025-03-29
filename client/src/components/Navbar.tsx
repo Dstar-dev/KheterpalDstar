@@ -38,6 +38,10 @@ const Navbar = () => {
     { id: "skills", label: "Skills" },
     { id: "contact", label: "Contact" },
   ];
+  
+  const pageLinks = [
+    { path: "/blog", label: "Blog" },
+  ];
 
   return (
     <header
@@ -63,6 +67,15 @@ const Navbar = () => {
             >
               {link.label}
             </button>
+          ))}
+          {pageLinks.map((link) => (
+            <Link
+              key={link.path}
+              href={link.path}
+              className="hover-trigger hover:text-accent transition-colors"
+            >
+              {link.label}
+            </Link>
           ))}
         </div>
 
@@ -119,6 +132,16 @@ const Navbar = () => {
           >
             {link.label}
           </button>
+        ))}
+        {pageLinks.map((link) => (
+          <Link
+            key={link.path}
+            href={link.path}
+            className="hover-trigger block w-full text-left hover:text-accent transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            {link.label}
+          </Link>
         ))}
       </div>
     </header>
