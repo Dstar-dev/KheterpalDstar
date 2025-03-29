@@ -19,7 +19,8 @@ const GlassCard = ({ children, className, glowEffect = false }: GlassCardProps) 
       {children}
 
       {glowEffect && (
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{
+          __html: `
           @keyframes glow {
             0% { box-shadow: 0 0 5px rgba(34, 211, 238, 0.3); }
             100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.5); }
@@ -27,7 +28,8 @@ const GlassCard = ({ children, className, glowEffect = false }: GlassCardProps) 
           .animate-glow {
             animation: glow 2s ease-in-out infinite alternate;
           }
-        `}</style>
+          `
+        }} />
       )}
     </div>
   );

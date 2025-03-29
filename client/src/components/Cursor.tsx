@@ -54,10 +54,10 @@ const Cursor = () => {
         }}
         transition={{
           type: "spring",
-          mass: 0.1,
-          stiffness: 200,
-          damping: 15,
-          duration: 0.1,
+          mass: 0.05,
+          stiffness: 400,
+          damping: 10,
+          duration: 0.05,
         }}
         style={{
           translateX: "-50%",
@@ -73,10 +73,10 @@ const Cursor = () => {
         }}
         transition={{
           type: "spring",
-          mass: 0.1,
-          stiffness: 300,
-          damping: 15,
-          duration: 0.1,
+          mass: 0.02,
+          stiffness: 500,
+          damping: 8,
+          duration: 0.03,
         }}
         style={{
           translateX: "-50%",
