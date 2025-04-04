@@ -1,10 +1,10 @@
-
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import GlassCard from "@/components/ui/glass-card";
 
 const blogPosts = [
   {
+    id: 1,
     title: "Securing Modern Web Applications",
     excerpt: "Exploring best practices in web security and common vulnerabilities.",
     date: "March 28, 2024",
@@ -12,6 +12,7 @@ const blogPosts = [
     imageUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b"
   },
   {
+    id: 2,
     title: "The Future of UI/UX Design",
     excerpt: "Emerging trends and technologies shaping digital experiences.",
     date: "March 25, 2024",
@@ -19,6 +20,7 @@ const blogPosts = [
     imageUrl: "https://images.unsplash.com/photo-1555421689-491a97ff2040"
   },
   {
+    id: 3,
     title: "Interactive Experiences in 2024",
     excerpt: "How modern web technologies enable immersive user experiences.",
     date: "March 22, 2024",
@@ -66,34 +68,36 @@ const Blog = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <GlassCard className="h-full">
-                <div className="aspect-video relative overflow-hidden rounded-t-xl">
-                  <img 
-                    src={post.imageUrl}
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <span className="text-sm text-accent font-medium">{post.category}</span>
-                  <h3 className="mt-2 text-xl font-semibold">{post.title}</h3>
-                  <p className="mt-2 text-gray-600 dark:text-gray-300">{post.excerpt}</p>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-sm text-gray-500">{post.date}</span>
-                    <motion.button
-                      whileHover={{ x: 5 }}
-                      className="text-accent hover:text-highlight transition-colors"
-                    >
-                      Read More <FaArrowRight className="inline-block ml-1" />
-                    </motion.button>
+              <Link href={`/blog/${post.id}`}>
+                <GlassCard className="h-full hover:border-accent/40 transition-all">
+                  <div className="aspect-video relative overflow-hidden rounded-t-xl">
+                    <img 
+                      src={post.imageUrl}
+                      alt={post.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                </div>
-              </GlassCard>
+                  <div className="p-6">
+                    <span className="text-sm text-accent font-medium">{post.category}</span>
+                    <h3 className="mt-2 text-xl font-semibold">{post.title}</h3>
+                    <p className="mt-2 text-gray-600 dark:text-gray-300">{post.excerpt}</p>
+                    <div className="mt-4 flex items-center justify-between">
+                      <span className="text-sm text-gray-500">{post.date}</span>
+                      <motion.button
+                        whileHover={{ x: 5 }}
+                        className="text-accent hover:text-highlight transition-colors"
+                      >
+                        Read More <FaArrowRight className="inline-block ml-1" />
+                      </motion.button>
+                    </div>
+                  </div>
+                </GlassCard>
+              </Link>
             </motion.div>
           ))}
         </div>
       </div>
-      
+
       {/* Background Elements */}
       <div className="absolute top-40 -right-20 w-72 h-72 bg-accent/10 rounded-full filter blur-3xl opacity-20" />
       <div className="absolute bottom-20 -left-20 w-72 h-72 bg-highlight/10 rounded-full filter blur-3xl opacity-20" />
