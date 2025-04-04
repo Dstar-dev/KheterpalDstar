@@ -77,16 +77,19 @@ const BlogPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-darkBg">
+    <div className="min-h-screen bg-white dark:bg-slate-900 text-gray-900 dark:text-white">
       <div className="container mx-auto px-4 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-12"
+          className="mb-12 text-center"
         >
-          <h1 className="text-4xl font-bold mb-4">Security Blog</h1>
-          <p className="text-gray-400">Latest cybersecurity news, vulnerabilities, and insights</p>
+          <span className="font-['Montserrat'] text-sm uppercase tracking-widest text-accent">Blog</span>
+          <h2 className="font-['Space_Grotesk'] font-bold text-3xl md:text-5xl mt-2">
+            Security <span className="bg-gradient-to-r from-accent to-highlight bg-clip-text text-transparent">Insights</span>
+          </h2>
+          <p className="mt-4 max-w-2xl mx-auto text-gray-600 dark:text-gray-300">Latest cybersecurity news, vulnerabilities, and insights</p>
         </motion.div>
 
         <div className="mb-8">
@@ -109,9 +112,10 @@ const BlogPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
+              className="group"
             >
               <Link href={`/blog/${post.id}`}>
-                <GlassCard className="h-full hover:border-accent/40 transition-all cursor-pointer">
+                <GlassCard className="h-full hover:border-accent/40 transition-all cursor-pointer overflow-hidden">
                   <div className="relative h-48">
                     <img
                       src={post.imageUrl}
