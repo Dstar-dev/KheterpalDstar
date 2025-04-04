@@ -1,6 +1,7 @@
 import { FaChevronDown, FaShieldAlt, FaLock, FaSearch } from "react-icons/fa";
 import StatCard from "@/components/ui/stat-card";
 import { useEffect } from "react";
+import InteractiveIllustration from "@/components/InteractiveIllustration";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -95,48 +96,32 @@ const Hero = () => {
             data-aos-delay="300"
           >
             <div className="relative">
-              <div className="w-full h-[500px] bg-white rounded-xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/90"></div>
-                
-                {/* Hero graphics - security focused illustrations */}
-                <div 
-                  className="absolute top-1/4 left-1/4 w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center animate-float"
-                  style={{ animationDelay: "0s" }}
-                >
-                  <FaShieldAlt className="text-primary text-2xl" />
-                </div>
-                <div 
-                  className="absolute top-1/3 right-1/4 w-20 h-20 bg-primary rounded-xl shadow-lg flex items-center justify-center animate-float"
-                  style={{ animationDelay: "1s" }}
-                >
-                  <FaLock className="text-white text-3xl" />
-                </div>
-                <div 
-                  className="absolute bottom-1/4 left-1/3 w-14 h-14 bg-white rounded-xl shadow-lg flex items-center justify-center animate-float"
-                  style={{ animationDelay: "1.5s" }}
-                >
-                  <FaSearch className="text-primary text-xl" />
+              <div className="w-full h-[500px] bg-gradient-to-br from-black/80 via-gray-900/90 to-black/80 dark:from-black/80 dark:via-gray-900/90 dark:to-black/80 rounded-xl relative overflow-hidden shadow-xl border border-gray-800/50">
+                <div className="absolute inset-0 z-0">
+                  <InteractiveIllustration />
                 </div>
                 
-                {/* Decorative elements */}
-                <div 
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-4 border-white/20 rounded-full"
-                  data-aos="zoom-in"
-                  data-aos-duration="1000"
-                  data-aos-delay="200"
-                ></div>
-                <div 
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-2 border-white/10 rounded-full"
-                  data-aos="zoom-in"
-                  data-aos-duration="1000"
-                  data-aos-delay="400"
-                ></div>
-                <div 
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-white/5 rounded-full"
-                  data-aos="zoom-in"
-                  data-aos-duration="1000"
-                  data-aos-delay="600"
-                ></div>
+                {/* Hero graphics - security focused icons with improved animation */}
+                <div className="absolute inset-0 z-10 flex items-center justify-center">
+                  <div 
+                    className="absolute top-1/4 left-1/4 w-16 h-16 bg-white/10 backdrop-blur-md rounded-xl shadow-lg flex items-center justify-center animate-float"
+                    style={{ animationDelay: "0s" }}
+                  >
+                    <FaShieldAlt className="text-primary text-2xl" />
+                  </div>
+                  <div 
+                    className="absolute top-1/3 right-1/4 w-20 h-20 bg-primary/20 backdrop-blur-md rounded-xl shadow-lg flex items-center justify-center animate-float"
+                    style={{ animationDelay: "1s" }}
+                  >
+                    <FaLock className="text-primary text-3xl" />
+                  </div>
+                  <div 
+                    className="absolute bottom-1/4 left-1/3 w-14 h-14 bg-white/10 backdrop-blur-md rounded-xl shadow-lg flex items-center justify-center animate-float"
+                    style={{ animationDelay: "1.5s" }}
+                  >
+                    <FaSearch className="text-primary text-xl" />
+                  </div>
+                </div>
               </div>
               
               {/* Badge elements for highlights */}

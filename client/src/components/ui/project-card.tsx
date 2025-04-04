@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { FaArrowRight } from "react-icons/fa";
 import { useState } from "react";
+import InteractiveCard from "@/components/ui/interactive-card";
 
 export interface ProjectCardProps {
   title: string;
@@ -97,91 +98,97 @@ const ProjectCard = ({
   };
 
   return (
-    <motion.div
-      className="card card-3d card-hover backdrop-blur-md bg-white/5 rounded-xl overflow-hidden transition-all border border-white/10 hover:bg-white/10"
-      initial="hidden"
-      whileInView="visible"
-      whileHover="hover"
-      viewport={{ once: false, margin: "-50px" }}
-      variants={cardVariants}
-      onHoverStart={() => setHovered(true)}
-      onHoverEnd={() => setHovered(false)}
-      data-aos="fade-up"
-      data-aos-duration="800"
-      data-aos-offset="100"
+    <InteractiveCard
+      className="rounded-xl overflow-hidden bg-white/5 dark:bg-black/20"
+      glowColor={accentColor === "primary" ? undefined : `#${accentColor}`}
+      glowIntensity={0.4}
     >
-      <div className="relative aspect-video overflow-hidden">
-        <motion.img
-          src={imageUrl}
-          alt={title}
-          className="w-full h-full object-cover"
-          variants={imageVariants}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-80"></div>
-        <motion.div 
-          className={`absolute top-4 right-4 backdrop-blur-md bg-primary/50 px-3 py-1 rounded-full text-xs font-medium text-${accentColor}`}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          {category}
-        </motion.div>
-      </div>
-
-      <div className="p-6">
-        <motion.h3 
-          className={`font-['Space_Grotesk'] text-xl font-bold mb-2 group-hover:text-${accentColor} transition-colors`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-        >
-          {title}
-        </motion.h3>
-        <motion.p 
-          className="text-sm text-white/80 mb-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          {description}
-        </motion.p>
-        
-        <motion.div 
-          className="flex flex-wrap gap-2 mb-4"
-          variants={tagStaggerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {tags.map((tag, index) => (
-            <motion.span 
-              key={index} 
-              className={`px-2 py-1 ${tagBgColor} text-${accentColor} text-xs rounded-md`}
-              variants={tagVariants}
-            >
-              {tag}
-            </motion.span>
-          ))}
-        </motion.div>
-        
-        <motion.a
-          href={link}
-          className={`link-underline inline-flex items-center gap-1 text-${accentColor} text-sm font-medium`}
-          whileHover={{ color: `var(--color-primary)` }}
-        >
-          View Case Study 
-          <motion.span
-            animate={{ x: [0, 3, 0] }}
-            transition={{ 
-              duration: 1.5, 
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
+      <motion.div
+        className="card-content backdrop-blur-md rounded-xl overflow-hidden"
+        initial="hidden"
+        whileInView="visible"
+        whileHover="hover"
+        viewport={{ once: false, margin: "-50px" }}
+        variants={cardVariants}
+        onHoverStart={() => setHovered(true)}
+        onHoverEnd={() => setHovered(false)}
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-offset="100"
+      >
+        <div className="relative aspect-video overflow-hidden">
+          <motion.img
+            src={imageUrl}
+            alt={title}
+            className="w-full h-full object-cover"
+            variants={imageVariants}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-80"></div>
+          <motion.div 
+            className={`absolute top-4 right-4 backdrop-blur-md bg-primary/50 px-3 py-1 rounded-full text-xs font-medium text-${accentColor}`}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <FaArrowRight className="text-xs" />
-          </motion.span>
-        </motion.a>
-      </div>
-    </motion.div>
+            {category}
+          </motion.div>
+        </div>
+
+        <div className="p-6">
+          <motion.h3 
+            className={`font-heading text-xl font-bold mb-2 group-hover:text-${accentColor} transition-colors`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+          >
+            {title}
+          </motion.h3>
+          <motion.p 
+            className="text-sm text-gray-600 dark:text-white/80 mb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            {description}
+          </motion.p>
+          
+          <motion.div 
+            className="flex flex-wrap gap-2 mb-4"
+            variants={tagStaggerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {tags.map((tag, index) => (
+              <motion.span 
+                key={index} 
+                className={`px-2 py-1 ${tagBgColor} text-${accentColor} text-xs rounded-md`}
+                variants={tagVariants}
+              >
+                {tag}
+              </motion.span>
+            ))}
+          </motion.div>
+          
+          <motion.a
+            href={link}
+            className={`link-underline inline-flex items-center gap-1 text-${accentColor} text-sm font-medium`}
+            whileHover={{ color: `var(--color-primary)` }}
+          >
+            View Case Study 
+            <motion.span
+              animate={{ x: [0, 3, 0] }}
+              transition={{ 
+                duration: 1.5, 
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <FaArrowRight className="text-xs" />
+            </motion.span>
+          </motion.a>
+        </div>
+      </motion.div>
+    </InteractiveCard>
   );
 };
 
