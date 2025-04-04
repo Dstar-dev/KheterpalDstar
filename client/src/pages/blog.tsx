@@ -5,6 +5,7 @@ import GlassCard from '@/components/ui/glass-card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { FaSearch, FaCalendarAlt, FaTag, FaArrowLeft } from 'react-icons/fa';
+import Navbar from '@/components/Navbar';
 
 interface BlogPost {
   id: string;
@@ -78,7 +79,8 @@ const BlogPage = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-900 text-gray-900 dark:text-white">
-      <div className="container mx-auto px-4 py-16">
+      <Navbar />
+      <div className="container mx-auto px-4 pt-24 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
