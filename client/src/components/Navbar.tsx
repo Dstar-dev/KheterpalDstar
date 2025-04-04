@@ -33,10 +33,10 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { id: "home", label: "How It Works" },
+    { id: "home", label: "Home" },
     { id: "projects", label: "Projects" },
-    { id: "blog", label: "Blog" },
-    { id: "about", label: "Team" },
+    { id: "skills", label: "Skills" },
+    { id: "timeline", label: "Timeline" },
     { id: "contact", label: "Contact" },
   ];
   
@@ -73,6 +73,15 @@ const Navbar = () => {
               >
                 {link.label}
               </button>
+            ))}
+            {pageLinks.map((link) => (
+              <div 
+                key={link.path} 
+                className="font-body text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors cursor-pointer"
+                onClick={() => window.location.href = link.path}
+              >
+                {link.label}
+              </div>
             ))}
           </div>
 
@@ -117,6 +126,15 @@ const Navbar = () => {
           >
             {link.label}
           </button>
+        ))}
+        {pageLinks.map((link) => (
+          <div 
+            key={link.path} 
+            className="block w-full text-left font-body text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium py-2 cursor-pointer"
+            onClick={() => window.location.href = link.path}
+          >
+            {link.label}
+          </div>
         ))}
         <div className="flex flex-col pt-4 space-y-3 border-t border-gray-100 dark:border-gray-800">
           <button className="font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors w-full text-left py-2">

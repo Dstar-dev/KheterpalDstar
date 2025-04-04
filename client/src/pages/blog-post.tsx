@@ -166,13 +166,9 @@ const BlogPostPage = () => {
         <GlassCard className="p-8 max-w-md text-center">
           <h2 className="text-2xl font-bold mb-4">Post Not Found</h2>
           <p className="mb-6">The blog post you're looking for doesn't exist or has been removed.</p>
-          <Link href="/blog">
-            <a>
-              <Button>
-                <FaArrowLeft className="mr-2" /> Back to Blog
-              </Button>
-            </a>
-          </Link>
+          <Button onClick={() => window.location.href = '/blog'}>
+            <FaArrowLeft className="mr-2" /> Back to Blog
+          </Button>
         </GlassCard>
       </div>
     );
@@ -196,11 +192,12 @@ const BlogPostPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Link href="/blog">
-                <a className="inline-flex items-center text-white/80 hover:text-accent mb-4 transition-colors">
-                  <FaArrowLeft className="mr-2" /> Back to Blog
-                </a>
-              </Link>
+              <div 
+                className="inline-flex items-center text-white/80 hover:text-accent mb-4 transition-colors cursor-pointer"
+                onClick={() => window.location.href = '/blog'}
+              >
+                <FaArrowLeft className="mr-2" /> Back to Blog
+              </div>
               
               <h1 className="font-['Space_Grotesk'] text-4xl md:text-5xl font-bold mb-4 text-white">
                 {post.title}
@@ -329,22 +326,24 @@ const BlogPostPage = () => {
                   <h3 className="font-['Space_Grotesk'] text-xl font-bold mb-4">Related Articles</h3>
                   <div className="space-y-4">
                     {relatedPosts.map((relatedPost) => (
-                      <Link key={relatedPost.id} href={`/blog/${relatedPost.id}`}>
-                        <a className="block group">
-                          <div className="flex items-start">
-                            <div 
-                              className="w-16 h-16 rounded-md bg-cover bg-center flex-shrink-0 mr-3"
-                              style={{ backgroundImage: `url(${relatedPost.imageUrl})` }}
-                            ></div>
-                            <div>
-                              <h4 className="font-bold text-sm group-hover:text-accent transition-colors line-clamp-2">
-                                {relatedPost.title}
-                              </h4>
-                              <p className="text-xs text-white/70 mt-1">{relatedPost.date}</p>
-                            </div>
+                      <div 
+                        key={relatedPost.id} 
+                        className="block group cursor-pointer"
+                        onClick={() => window.location.href = `/blog/${relatedPost.id}`}
+                      >
+                        <div className="flex items-start">
+                          <div 
+                            className="w-16 h-16 rounded-md bg-cover bg-center flex-shrink-0 mr-3"
+                            style={{ backgroundImage: `url(${relatedPost.imageUrl})` }}
+                          ></div>
+                          <div>
+                            <h4 className="font-bold text-sm group-hover:text-accent transition-colors line-clamp-2">
+                              {relatedPost.title}
+                            </h4>
+                            <p className="text-xs text-white/70 mt-1">{relatedPost.date}</p>
                           </div>
-                        </a>
-                      </Link>
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </GlassCard>

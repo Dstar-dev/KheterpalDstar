@@ -34,20 +34,29 @@ const RSS_FEEDS = [
 
 async function fetchNVDVulnerabilities() {
   try {
+    const now = new Date();
+    const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+    
     const response = await axios.get(
       'https://services.nvd.nist.gov/rest/json/cves/2.0',
       {
         params: {
           resultsPerPage: 20,
-          pubStartDate: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
+          pubStartDate: yesterday.toISOString(),
+          pubEndDate: now.toISOString()
         }
       }
     );
 
+    if (!response.data || !response.data.vulnerabilities) {
+      console.warn('No vulnerabilities found in NVD response or unexpected response format');
+      return [];
+    }
+    
     return response.data.vulnerabilities.map((vuln: any) => ({
       id: vuln.cve.id,
       title: `New Vulnerability: ${vuln.cve.id}`,
-      description: vuln.cve.descriptions[0]?.value || 'No description available',
+      description: vuln.cve.descriptions?.[0]?.value || 'No description available',
       date: vuln.cve.published,
       source: 'NVD',
       link: `https://nvd.nist.gov/vuln/detail/${vuln.cve.id}`,
