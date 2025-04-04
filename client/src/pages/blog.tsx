@@ -22,8 +22,8 @@ interface BlogPost {
   severity?: 'Critical' | 'High' | 'Medium' | 'Low';
 }
 
-// Example blog data - cybersecurity posts
-const blogPosts: BlogPost[] = [
+// Example blog data - cybersecurity posts (This will be replaced by fetched data)
+const defaultBlogPosts: BlogPost[] = [
   {
     id: "1",
     title: "New Critical Vulnerability in Log4j Library (Log4Shell)",
@@ -109,20 +109,64 @@ const blogPosts: BlogPost[] = [
 // Define categories for filtering
 const categories = ["All", "Vulnerabilities", "Threat Intelligence", "Malware", "Patching", "Trends"];
 
+// Placeholder for fetching blog posts (This needs implementation)
+const useBlogPosts = () => {
+  const [data, setData] = useState<BlogPost[] | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    // Fetch blog posts from API or other data source here
+    const fetchData = async () => {
+      try {
+        // Replace with your actual API call
+        const response = await fetch('/api/blogposts'); // Placeholder API endpoint
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const fetchedPosts = await response.json();
+        setData(fetchedPosts);
+      } catch (error) {
+        setError(error as Error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return { data, isLoading, error };
+};
+
+
 const BlogPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(blogPosts);
-  
+  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(defaultBlogPosts);
+
+  const { data: posts, isLoading, error } = useBlogPosts();
+
+          if (isLoading) {
+            return <div className="text-center">Loading security news...</div>;
+          }
+
+          if (error) {
+            return <div className="text-center text-red-500">Error loading news</div>;
+          }
+
+          const blogPosts = posts || defaultBlogPosts;
+
+
   // Filter posts based on category and search query
   useEffect(() => {
     let result = blogPosts;
-    
+
     // Apply category filter
     if (activeCategory !== "All") {
       result = result.filter(post => post.category === activeCategory);
     }
-    
+
     // Apply search filter
     if (searchQuery.trim() !== "") {
       const query = searchQuery.toLowerCase();
@@ -132,9 +176,9 @@ const BlogPage = () => {
         post.tags.some(tag => tag.toLowerCase().includes(query))
       );
     }
-    
+
     setFilteredPosts(result);
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, searchQuery, blogPosts]);
 
   // Function to get severity badge color
   const getSeverityColor = (severity?: 'Critical' | 'High' | 'Medium' | 'Low') => {
@@ -203,7 +247,7 @@ const BlogPage = () => {
 
           {/* Blog Posts Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
+            {blogPosts.map((post) => (
               <motion.div
                 key={post.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -228,7 +272,7 @@ const BlogPage = () => {
                           </Badge>
                         )}
                       </div>
-                      
+
                       {/* Content */}
                       <div className="p-6 flex-1 flex flex-col">
                         {/* Category & Date */}
@@ -242,17 +286,17 @@ const BlogPage = () => {
                             {post.date}
                           </div>
                         </div>
-                        
+
                         {/* Title */}
                         <h3 className="font-['Space_Grotesk'] text-xl font-bold mb-3 hover:text-accent transition-colors">
                           {post.title}
                         </h3>
-                        
+
                         {/* Excerpt */}
                         <p className="text-white/80 mb-4 flex-1">
                           {post.excerpt}
                         </p>
-                        
+
                         {/* Tags and Read Time */}
                         <div className="mt-auto">
                           <div className="flex flex-wrap gap-2 mb-3">
@@ -267,7 +311,7 @@ const BlogPage = () => {
                               </Badge>
                             )}
                           </div>
-                          
+
                           <div className="flex items-center justify-between text-sm text-white/70">
                             <div className="flex items-center">
                               <FaEye className="mr-2 text-accent" />
@@ -288,7 +332,7 @@ const BlogPage = () => {
               </motion.div>
             ))}
           </div>
-          
+
           {/* No Results */}
           {filteredPosts.length === 0 && (
             <div className="text-center py-16">
@@ -300,12 +344,12 @@ const BlogPage = () => {
             </div>
           )}
         </div>
-        
+
         {/* Background Elements */}
         <div className="absolute -top-20 -left-20 w-96 h-96 bg-accent/20 rounded-full filter blur-3xl opacity-30 animate-pulse-slow"></div>
         <div className="absolute -bottom-40 -right-20 w-80 h-80 bg-highlight/20 rounded-full filter blur-3xl opacity-30 animate-pulse-slow"></div>
       </section>
-      
+
       {/* Featured Cybersecurity Resources */}
       <section className="relative py-16 bg-gradient-to-b from-transparent to-primary/5">
         <div className="container mx-auto px-6">
@@ -323,7 +367,7 @@ const BlogPage = () => {
               Tools and resources to help you stay protected in an ever-evolving threat landscape.
             </p>
           </motion.div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Resource 1 */}
             <motion.div
@@ -348,7 +392,7 @@ const BlogPage = () => {
                 </Button>
               </GlassCard>
             </motion.div>
-            
+
             {/* Resource 2 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -372,7 +416,7 @@ const BlogPage = () => {
                 </Button>
               </GlassCard>
             </motion.div>
-            
+
             {/* Resource 3 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
