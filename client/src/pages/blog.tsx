@@ -101,7 +101,7 @@ const BlogPage = () => {
               placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white/10 rounded-lg py-2 px-4 pl-10 text-white focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full bg-white/10 rounded-lg py-2 px-4 pl-10 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-accent"
             />
             <FaSearch className="absolute left-3 top-3 text-gray-400" />
           </div>
