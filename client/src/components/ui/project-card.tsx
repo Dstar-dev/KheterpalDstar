@@ -99,12 +99,12 @@ const ProjectCard = ({
 
   return (
     <InteractiveCard
-      className="rounded-xl overflow-hidden bg-white/5 dark:bg-black/20"
+      className="rounded-xl overflow-hidden bg-white/10 dark:bg-black/40"
       glowColor={accentColor === "primary" ? undefined : `#${accentColor}`}
-      glowIntensity={0.4}
+      glowIntensity={0.2}
     >
       <motion.div
-        className="card-content backdrop-blur-md rounded-xl overflow-hidden"
+        className="card-content backdrop-blur-md rounded-xl overflow-hidden bg-white/90 dark:bg-black/70"
         initial="hidden"
         whileInView="visible"
         whileHover="hover"
@@ -136,7 +136,7 @@ const ProjectCard = ({
 
         <div className="p-6">
           <motion.h3 
-            className={`font-heading text-xl font-bold mb-2 group-hover:text-${accentColor} transition-colors`}
+            className={`font-heading text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-${accentColor} transition-colors`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.5 }}
@@ -144,7 +144,7 @@ const ProjectCard = ({
             {title}
           </motion.h3>
           <motion.p 
-            className="text-sm text-gray-600 dark:text-white/80 mb-4"
+            className="text-sm text-gray-800 dark:text-gray-200 mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -161,7 +161,7 @@ const ProjectCard = ({
             {tags.map((tag, index) => (
               <motion.span 
                 key={index} 
-                className={`px-2 py-1 ${tagBgColor} text-${accentColor} text-xs rounded-md`}
+                className={`px-2 py-1 bg-white/20 dark:bg-black/30 backdrop-blur-sm text-gray-800 dark:text-gray-200 border border-${accentColor}/20 text-xs rounded-md`}
                 variants={tagVariants}
               >
                 {tag}
@@ -171,7 +171,7 @@ const ProjectCard = ({
           
           <motion.a
             href={link}
-            className={`link-underline inline-flex items-center gap-1 text-${accentColor} text-sm font-medium`}
+            className={`link-underline inline-flex items-center gap-1 text-${accentColor} font-bold text-sm font-medium`}
             whileHover={{ color: `var(--color-primary)` }}
           >
             View Case Study 

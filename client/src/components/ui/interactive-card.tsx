@@ -17,7 +17,7 @@ export const InteractiveCard = ({
   className = "",
   depth = 20,
   glowColor,
-  glowIntensity = 0.5,
+  glowIntensity = 0.3,
   rotationFactor = 7
 }: InteractiveCardProps) => {
   const { theme } = useTheme();
@@ -28,7 +28,7 @@ export const InteractiveCard = ({
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
   // Default glow color based on theme if not provided
-  const defaultGlowColor = theme === 'dark' ? "#00ffff" : "#ff9900";
+  const defaultGlowColor = theme === 'dark' ? "rgba(0, 255, 255, 0.7)" : "#ff9900";
   const effectiveGlowColor = glowColor || defaultGlowColor;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
